@@ -8,8 +8,7 @@ Version:	1.0
 Release:	0
 License:	Creative Commons Attribution-ShareAlike
 Group:		System/Kernel and hardware
-Url:		
-Source0:	
+Source0:	openmandriva-glow.tar.gz
 Requires:	plymouth
 Requires:	plymouth-two-step
 Requires(post,postun):	plymouth-scripts
