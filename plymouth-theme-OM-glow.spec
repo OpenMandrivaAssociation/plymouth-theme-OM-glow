@@ -18,17 +18,17 @@ Requires(post,postun):	plymouth-scripts
 This package contains the "OpenMandriva Glow" Plymouth theme.
 
 %files
-%{_datadir}/plymouth/themes/OpenMandriva-glow
+%{_datadir}/plymouth/themes/openmandriva-glow
 
 %post
 if [ -x %{_sbindir}/plymouth-set-default-theme ]; then
     export LIB=%{_lib}
     if [ $1 -eq 1 ]; then
-        %{_sbindir}/plymouth-set-default-theme --rebuild-initrd OpenMandriva-glow
+        %{_sbindir}/plymouth-set-default-theme --rebuild-initrd openmandriva-glow
     else
         THEME=$(%{_sbindir}/plymouth-set-default-theme)
-        if [ "$THEME" == "text" -o "$THEME" == "OpenMandriva-glow" ]; then
-            %{_sbindir}/plymouth-set-default-theme --rebuild-initrd OpenMandriva-glow
+        if [ "$THEME" == "text" -o "$THEME" == "openmandriva-glow" ]; then
+            %{_sbindir}/plymouth-set-default-theme --rebuild-initrd openmandriva-glow
         fi
     fi
 fi
@@ -36,7 +36,7 @@ fi
 %postun
 export LIB=%{_lib}
 if [ $1 -eq 0 -a -x %{_sbindir}/plymouth-set-default-theme ]; then
-    if [ "$(%{_sbindir}/plymouth-set-default-theme)" == "OpenMandriva-glow" ]; then
+    if [ "$(%{_sbindir}/plymouth-set-default-theme)" == "openmandriva-glow" ]; then
         %{_sbindir}/plymouth-set-default-theme --reset --rebuild-initrd
     fi
 fi
@@ -53,4 +53,4 @@ find . -type f | xargs chmod 0644
 %install
 mkdir -p %{buildroot}%{_datadir}/plymouth/themes/
 
-cp -r OpenMandriva-glow %{buildroot}%{_datadir}/plymouth/themes/
+cp -r openmandriva-glow %{buildroot}%{_datadir}/plymouth/themes/
